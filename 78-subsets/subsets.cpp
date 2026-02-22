@@ -1,27 +1,22 @@
 class Solution {
 public:
-   vector<vector<int>>res;
+    vector<vector<int>> res;
 
-   void solve(int i , vector<int>& nums , vector<int>& temp){
+    void backtrack(int start, vector<int>& nums, vector<int>& curr){
+       
+        res.push_back(curr);
 
-    if(i>=nums.size()){
-        res.push_back(temp);
-        return;
+         
+        for(int i = start; i < nums.size(); i++){
+            curr.push_back(nums[i]);        // choose
+            backtrack(i + 1, nums, curr);   // explore
+            curr.pop_back();                //  backtrack
+        }
     }
 
-       temp.push_back(nums[i]); //include
-       solve(i+1 ,nums,temp );
-       temp.pop_back();
-       solve(i+1 ,nums,temp ); //exclude
-
-   }
     vector<vector<int>> subsets(vector<int>& nums) {
-        
-        vector<int>temp;
-        solve(0,nums,temp);
-
+        vector<int> curr;
+        backtrack(0, nums, curr);
         return res;
-
-        
     }
 };
