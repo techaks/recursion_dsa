@@ -1,6 +1,7 @@
 class Solution {
-public:
+public:.
     int M = 1e9+7;
+
     int concatenatedBinary(int n) {
         long res = 0;
 
