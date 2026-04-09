@@ -4,10 +4,10 @@ public:
         int a = 0 , b = 0 ;
         for(char ch : s){
             if(ch == 'a')a++;
-            else b++;
+            else a--;
         }
 
-        return abs(a-b);
+        return abs(a);
         
     }
 };
